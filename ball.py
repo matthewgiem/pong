@@ -12,7 +12,7 @@ class Ball(Turtle):
         self.start_game()
 
     def start_game(self):
-        self.setheading(random.randint(0, 360))
+        self.setheading(random.randint(0, 100) - 50)
 
     def inplay(self, speed):
         self.forward(speed)
