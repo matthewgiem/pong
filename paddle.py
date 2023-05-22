@@ -1,5 +1,4 @@
 from turtle import Turtle
-# add pass through to change which paddle we are refrencing
 
 
 class Paddle(Turtle):

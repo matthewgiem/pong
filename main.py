@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 
@@ -17,16 +17,23 @@ screen.onkey(right_paddle.go_down, "Down")
 screen.onkey(left_paddle.go_up, "w")
 screen.onkey(left_paddle.go_down, "s")
 
-ball = Ball()
+score = 0
+ball = Ball(0.125)
 game_is_on = True
 while game_is_on:
     screen.update()
-    ball.inplay(.125)
-
-    if ball.ycor() > 300 or ball.ycor() < -300:
+    ball.inplay()
+    if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce_roof()
+    if ball.xcor() > 360 or ball.xcor() < -360:
+        if ball.distance(right_paddle.pos()) < 60 or ball.distance(left_paddle.pos()) < 60:
+            ball.speed = ball.speed * 1.1
+            ball.bounce_paddle()
+            score += 1
+            print(f"the score of the game is {score}")
 
-
-
+        else:
+            print(f"the score of the game is {score}")
+            game_is_on = False
 
 screen.exitonclick()
