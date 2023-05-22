@@ -9,11 +9,14 @@ class Ball(Turtle):
         self.penup()
         self.goto(0, 0)
         self.shape("circle")
-        self.start_game()
+        self.start_game(random.choice(["right", "left"]))
         self.speed = speed
 
-    def start_game(self):
-        self.setheading(random.randint(0, 100) - 50)
+    def start_game(self, side):
+        if side == "right":
+            self.setheading(random.randint(0, 100) - 50)
+        elif side == "left":
+            self.setheading(random.randint(180, 280) - 50)
 
     def inplay(self):
         self.forward(self.speed)
