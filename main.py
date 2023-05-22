@@ -28,7 +28,7 @@ while game_is_on:
         ball.bounce_roof()
     if ball.xcor() > 360 or ball.xcor() < -360:
         if ball.distance(right_paddle.pos()) < 60 or ball.distance(left_paddle.pos()) < 60:
-            ball.speed = ball.speed * 1.1
+            ball.speed = ball.speed + 0.02
             ball.bounce_paddle()
 
         else:
