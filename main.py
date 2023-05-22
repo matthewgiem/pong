@@ -23,6 +23,10 @@ while game_is_on:
     screen.update()
     ball.inplay(.125)
 
+    if ball.ycor() > 300 or ball.ycor() < -300:
+        ball.bounce_roof()
+
+
 
 
 screen.exitonclick()

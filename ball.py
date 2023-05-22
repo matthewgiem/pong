@@ -16,3 +16,14 @@ class Ball(Turtle):
 
     def inplay(self, speed):
         self.forward(speed)
+
+    def bounce_roof(self):
+        heading = self.heading()
+        if 0 < heading < 90:
+            self.setheading(heading - 90)
+        if 90 < heading < 180:
+            self.setheading(heading + 90)
+        if 180 < heading < 270:
+            self.setheading(heading - 90)
+        if 270 < heading < 360:
+            self.setheading(heading + 90)
